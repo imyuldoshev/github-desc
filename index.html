@@ -3,13 +3,373 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/output.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Document</title>
+    <title>Tailwind CSS — Utility-First CSS Framework</title>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-sky-brand: #38bdf8;
+      }
+    </style>
   </head>
-  <body>
-    <div class="w-96 h-96 bg-amber-900">
-      <h1>Git va Github</h1>
-    </div>
+  <body class="bg-slate-950 text-white font-sans antialiased">
+
+    <!-- Nav -->
+    <nav class="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/80 backdrop-blur-md">
+      <div class="mx-auto max-w-6xl px-6 flex items-center justify-between h-16">
+        <div class="flex items-center gap-2">
+          <!-- Tailwind-ish logo mark -->
+          <svg class="w-8 h-8" viewBox="0 0 54 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M27 0C19.8 0 15.3 3.6 13.5 10.8C16.2 7.2 19.35 5.85 22.95 6.75C25.004 7.263 26.472 8.754 28.097 10.403C30.744 13.09 33.808 16.2 40.5 16.2C47.7 16.2 52.2 12.6 54 5.4C51.3 9 48.15 10.35 44.55 9.45C42.496 8.937 41.028 7.446 39.403 5.797C36.756 3.11 33.692 0 27 0ZM13.5 16.2C6.3 16.2 1.8 19.8 0 27C2.7 23.4 5.85 22.05 9.45 22.95C11.504 23.463 12.972 24.954 14.597 26.603C17.244 29.29 20.308 32.4 27 32.4C34.2 32.4 38.7 28.8 40.5 21.6C37.8 25.2 34.65 26.55 31.05 25.65C28.996 25.137 27.528 23.646 25.903 21.997C23.256 19.31 20.192 16.2 13.5 16.2Z" fill="#38BDF8"/>
+          </svg>
+          <span class="font-bold text-lg tracking-tight">Tailwind CSS</span>
+        </div>
+        <div class="hidden md:flex items-center gap-8 text-sm text-slate-400">
+          <a href="#what" class="hover:text-white transition-colors">What is it?</a>
+          <a href="#features" class="hover:text-white transition-colors">Features</a>
+          <a href="#utilities" class="hover:text-white transition-colors">Utilities</a>
+          <a href="#example" class="hover:text-white transition-colors">Example</a>
+          <a href="https://tailwindcss.com/docs" target="_blank" class="bg-sky-500 hover:bg-sky-400 text-white px-4 py-1.5 rounded-full transition-colors font-medium">Docs →</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative overflow-hidden py-28 px-6 text-center">
+      <!-- Glow blobs -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute top-20 left-1/4 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative mx-auto max-w-4xl">
+        <span class="inline-block bg-sky-500/10 border border-sky-500/30 text-sky-400 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+          Utility-First CSS Framework
+        </span>
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+          Build anything.<br/>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-cyan-300">
+            Style everything.
+          </span>
+        </h1>
+        <p class="text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+          Tailwind CSS is a utility-first CSS framework that gives you low-level classes to build completely custom designs — without ever leaving your HTML.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="https://tailwindcss.com/docs/installation" target="_blank" class="bg-sky-500 hover:bg-sky-400 text-white font-semibold px-6 py-3 rounded-xl transition-all hover:scale-105 shadow-lg shadow-sky-500/30">
+            Get Started
+          </a>
+          <a href="#example" class="border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white font-semibold px-6 py-3 rounded-xl transition-all">
+            See an Example
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- What is Tailwind -->
+    <section id="what" class="py-20 px-6">
+      <div class="mx-auto max-w-6xl">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-5">What is Tailwind CSS?</h2>
+            <p class="text-slate-400 text-lg leading-relaxed mb-5">
+              Unlike traditional CSS frameworks like Bootstrap, Tailwind doesn't provide pre-built components. Instead, it gives you a huge set of small, single-purpose <strong class="text-white">utility classes</strong> that you compose to build your own designs.
+            </p>
+            <p class="text-slate-400 text-lg leading-relaxed mb-5">
+              You style elements directly in HTML using classes like <code class="text-sky-400 bg-slate-800 px-1.5 py-0.5 rounded text-sm">flex</code>, <code class="text-sky-400 bg-slate-800 px-1.5 py-0.5 rounded text-sm">pt-4</code>, <code class="text-sky-400 bg-slate-800 px-1.5 py-0.5 rounded text-sm">text-center</code>, and <code class="text-sky-400 bg-slate-800 px-1.5 py-0.5 rounded text-sm">rotate-90</code> — no context switching to a CSS file.
+            </p>
+            <p class="text-slate-400 text-lg leading-relaxed">
+              At build time, Tailwind scans your HTML and generates only the CSS you actually use — resulting in tiny, production-ready stylesheets.
+            </p>
+          </div>
+          <!-- Comparison card -->
+          <div class="space-y-4">
+            <div class="bg-slate-900 rounded-2xl border border-slate-800 p-5">
+              <p class="text-xs text-red-400 font-semibold uppercase tracking-widest mb-3">❌ Traditional CSS</p>
+              <pre class="text-sm text-slate-300 overflow-x-auto leading-relaxed"><code><span class="text-slate-500">/* styles.css */</span>
+<span class="text-cyan-400">.card</span> {
+  <span class="text-sky-300">padding</span>: 1.5rem;
+  <span class="text-sky-300">border-radius</span>: 1rem;
+  <span class="text-sky-300">background</span>: #1e293b;
+  <span class="text-sky-300">box-shadow</span>: 0 4px 6px rgba(0,0,0,.1);
+}</code></pre>
+            </div>
+            <div class="bg-slate-900 rounded-2xl border border-sky-500/30 p-5">
+              <p class="text-xs text-sky-400 font-semibold uppercase tracking-widest mb-3">✅ Tailwind CSS</p>
+              <pre class="text-sm text-slate-300 overflow-x-auto leading-relaxed"><code><span class="text-slate-500">&lt;!-- HTML --&gt;</span>
+<span class="text-cyan-400">&lt;div</span> <span class="text-sky-300">class</span>=<span class="text-green-400">"p-6 rounded-2xl
+       bg-slate-800 shadow-md"</span><span class="text-cyan-400">&gt;</span>
+  ...
+<span class="text-cyan-400">&lt;/div&gt;</span></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features -->
+    <section id="features" class="py-20 px-6 bg-slate-900/50">
+      <div class="mx-auto max-w-6xl">
+        <div class="text-center mb-14">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Tailwind?</h2>
+          <p class="text-slate-400 text-lg max-w-xl mx-auto">Everything you need to build modern UIs — fast.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-sky-500/40 transition-colors group">
+            <div class="w-12 h-12 bg-sky-500/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-sky-500/20 transition-colors">
+              <span class="text-2xl">⚡</span>
+            </div>
+            <h3 class="font-semibold text-lg mb-2">No CSS to Write</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Style everything directly in your HTML. No back-and-forth between files. Your markup and style live together.</p>
+          </div>
+
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-sky-500/40 transition-colors group">
+            <div class="w-12 h-12 bg-sky-500/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-sky-500/20 transition-colors">
+              <span class="text-2xl">📦</span>
+            </div>
+            <h3 class="font-semibold text-lg mb-2">Tiny Bundle Size</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Tailwind scans your files and strips unused styles at build time. Most projects ship less than 10 kB of CSS.</p>
+          </div>
+
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-sky-500/40 transition-colors group">
+            <div class="w-12 h-12 bg-sky-500/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-sky-500/20 transition-colors">
+              <span class="text-2xl">🎨</span>
+            </div>
+            <h3 class="font-semibold text-lg mb-2">Fully Customizable</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Extend the design system with your own colors, fonts, spacing, and more via a simple config file.</p>
+          </div>
+
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-sky-500/40 transition-colors group">
+            <div class="w-12 h-12 bg-sky-500/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-sky-500/20 transition-colors">
+              <span class="text-2xl">📱</span>
+            </div>
+            <h3 class="font-semibold text-lg mb-2">Responsive by Default</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Every utility can be prefixed with a breakpoint: <code class="text-sky-400">sm:</code>, <code class="text-sky-400">md:</code>, <code class="text-sky-400">lg:</code>. Mobile-first, always.</p>
+          </div>
+
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-sky-500/40 transition-colors group">
+            <div class="w-12 h-12 bg-sky-500/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-sky-500/20 transition-colors">
+              <span class="text-2xl">🌙</span>
+            </div>
+            <h3 class="font-semibold text-lg mb-2">Dark Mode Ready</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Use the <code class="text-sky-400">dark:</code> prefix to style elements differently in dark mode. Works with class or media query strategies.</p>
+          </div>
+
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-sky-500/40 transition-colors group">
+            <div class="w-12 h-12 bg-sky-500/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-sky-500/20 transition-colors">
+              <span class="text-2xl">🔌</span>
+            </div>
+            <h3 class="font-semibold text-lg mb-2">Plugin Ecosystem</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Official plugins for typography, forms, and aspect-ratio. Plus a rich community of third-party plugins.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Common Utilities -->
+    <section id="utilities" class="py-20 px-6">
+      <div class="mx-auto max-w-6xl">
+        <div class="text-center mb-14">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Common Utilities</h2>
+          <p class="text-slate-400 text-lg max-w-xl mx-auto">A glimpse at the building blocks you'll use every day.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+          <!-- Layout -->
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+            <p class="text-sky-400 text-xs font-bold uppercase tracking-widest mb-4">Layout</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><code class="text-slate-200">flex</code><span class="text-slate-500">display: flex</span></li>
+              <li class="flex justify-between"><code class="text-slate-200">grid</code><span class="text-slate-500">display: grid</span></li>
+              <li class="flex justify-between"><code class="text-slate-200">hidden</code><span class="text-slate-500">display: none</span></li>
+              <li class="flex justify-between"><code class="text-slate-200">container</code><span class="text-slate-500">max-width</span></li>
+              <li class="flex justify-between"><code class="text-slate-200">items-center</code><span class="text-slate-500">align-items</span></li>
+              <li class="flex justify-between"><code class="text-slate-200">justify-between</code><span class="text-slate-500">justify-content</span></li>
+            </ul>
+          </div>
+
+          <!-- Spacing -->
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+            <p class="text-cyan-400 text-xs font-bold uppercase tracking-widest mb-4">Spacing</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><code class="text-slate-200">p-4</code><span class="text-slate-500">padding: 1rem</span></li>
+              <li class="flex justify-between"><code class="text-slate-200">px-6</code><span class="text-slate-500">padding x-axis</span></li>
+              <li class="flex justify-between"><code class="text-slate-200">py-3</code><span class="text-slate-500">padding y-axis</span></li>
+              <li class="flex justify-between"><code class="text-slate-200">m-auto</code><span class="text-slate-500">margin: auto</span></li>
+              <li class="flex justify-between"><code class="text-slate-200">mt-8</code><span class="text-slate-500">margin-top: 2rem</span></li>
+              <li class="flex justify-between"><code class="text-slate-200">gap-4</code><span class="text-slate-500">gap: 1rem</span></li>
+            </ul>
+          </div>
+
+          <!-- Typography -->
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+            <p class="text-violet-400 text-xs font-bold uppercase tracking-widest mb-4">Typography</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><code class="text-slate-200">text-xl</code><span class="text-slate-500">font-size</span></li>
+              <li class="flex justify-between"><code class="text-slate-200">font-bold</code><span class="text-slate-500">font-weight</span></li>
+              <li class="flex justify-between"><code class="text-slate-200">text-center</code><span class="text-slate-500">text-align</span></li>
+              <li class="flex justify-between"><code class="text-slate-200">leading-relaxed</code><span class="text-slate-500">line-height</span></li>
+              <li class="flex justify-between"><code class="text-slate-200">tracking-wide</code><span class="text-slate-500">letter-spacing</span></li>
+              <li class="flex justify-between"><code class="text-slate-200">truncate</code><span class="text-slate-500">text overflow</span></li>
+            </ul>
+          </div>
+
+          <!-- Effects -->
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+            <p class="text-pink-400 text-xs font-bold uppercase tracking-widest mb-4">Effects</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><code class="text-slate-200">rounded-xl</code><span class="text-slate-500">border-radius</span></li>
+              <li class="flex justify-between"><code class="text-slate-200">shadow-lg</code><span class="text-slate-500">box-shadow</span></li>
+              <li class="flex justify-between"><code class="text-slate-200">opacity-50</code><span class="text-slate-500">opacity</span></li>
+              <li class="flex justify-between"><code class="text-slate-200">blur-md</code><span class="text-slate-500">filter: blur</span></li>
+              <li class="flex justify-between"><code class="text-slate-200">transition</code><span class="text-slate-500">transition</span></li>
+              <li class="flex justify-between"><code class="text-slate-200">hover:scale-105</code><span class="text-slate-500">transform</span></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Example -->
+    <section id="example" class="py-20 px-6 bg-slate-900/50">
+      <div class="mx-auto max-w-6xl">
+        <div class="text-center mb-14">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Live Example</h2>
+          <p class="text-slate-400 text-lg max-w-xl mx-auto">This entire page is styled with Tailwind. Here's a card component built with it.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 items-start">
+          <!-- Code -->
+          <div class="bg-slate-950 rounded-2xl border border-slate-800 overflow-hidden">
+            <div class="flex items-center gap-2 px-5 py-3 border-b border-slate-800 bg-slate-900">
+              <span class="w-3 h-3 rounded-full bg-red-500"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+              <span class="w-3 h-3 rounded-full bg-green-500"></span>
+              <span class="ml-2 text-xs text-slate-500">card.html</span>
+            </div>
+            <pre class="p-5 text-sm text-slate-300 overflow-x-auto leading-loose"><code><span class="text-cyan-400">&lt;div</span> <span class="text-sky-300">class</span>=<span class="text-green-400">"bg-slate-800 rounded-2xl
+       p-6 max-w-sm shadow-xl"</span><span class="text-cyan-400">&gt;</span>
+  <span class="text-cyan-400">&lt;img</span> <span class="text-sky-300">class</span>=<span class="text-green-400">"rounded-xl w-full"</span>
+       <span class="text-sky-300">src</span>=<span class="text-green-400">"..."</span> <span class="text-cyan-400">/&gt;</span>
+  <span class="text-cyan-400">&lt;div</span> <span class="text-sky-300">class</span>=<span class="text-green-400">"mt-4"</span><span class="text-cyan-400">&gt;</span>
+    <span class="text-cyan-400">&lt;span</span> <span class="text-sky-300">class</span>=<span class="text-green-400">"bg-sky-500 text-white
+           text-xs px-2 py-1 rounded-full"</span><span class="text-cyan-400">&gt;</span>
+      Framework
+    <span class="text-cyan-400">&lt;/span&gt;</span>
+    <span class="text-cyan-400">&lt;h2</span> <span class="text-sky-300">class</span>=<span class="text-green-400">"text-white font-bold
+           text-xl mt-2"</span><span class="text-cyan-400">&gt;</span>
+      Tailwind CSS
+    <span class="text-cyan-400">&lt;/h2&gt;</span>
+    <span class="text-cyan-400">&lt;p</span> <span class="text-sky-300">class</span>=<span class="text-green-400">"text-slate-400 mt-2
+          text-sm"</span><span class="text-cyan-400">&gt;</span>
+      A utility-first CSS framework.
+    <span class="text-cyan-400">&lt;/p&gt;</span>
+    <span class="text-cyan-400">&lt;button</span> <span class="text-sky-300">class</span>=<span class="text-green-400">"mt-4 w-full bg-sky-500
+            hover:bg-sky-400 text-white
+            py-2 rounded-xl transition"</span><span class="text-cyan-400">&gt;</span>
+      Learn More
+    <span class="text-cyan-400">&lt;/button&gt;</span>
+  <span class="text-cyan-400">&lt;/div&gt;</span>
+<span class="text-cyan-400">&lt;/div&gt;</span></code></pre>
+          </div>
+
+          <!-- Rendered card -->
+          <div class="flex justify-center">
+            <div class="bg-slate-800 rounded-2xl p-6 max-w-sm w-full shadow-xl shadow-black/40">
+              <div class="rounded-xl w-full h-44 bg-gradient-to-br from-sky-500 to-cyan-400 flex items-center justify-center">
+                <svg class="w-16 h-16 text-white/80" viewBox="0 0 54 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M27 0C19.8 0 15.3 3.6 13.5 10.8C16.2 7.2 19.35 5.85 22.95 6.75C25.004 7.263 26.472 8.754 28.097 10.403C30.744 13.09 33.808 16.2 40.5 16.2C47.7 16.2 52.2 12.6 54 5.4C51.3 9 48.15 10.35 44.55 9.45C42.496 8.937 41.028 7.446 39.403 5.797C36.756 3.11 33.692 0 27 0ZM13.5 16.2C6.3 16.2 1.8 19.8 0 27C2.7 23.4 5.85 22.05 9.45 22.95C11.504 23.463 12.972 24.954 14.597 26.603C17.244 29.29 20.308 32.4 27 32.4C34.2 32.4 38.7 28.8 40.5 21.6C37.8 25.2 34.65 26.55 31.05 25.65C28.996 25.137 27.528 23.646 25.903 21.997C23.256 19.31 20.192 16.2 13.5 16.2Z" fill="currentColor"/>
+                </svg>
+              </div>
+              <div class="mt-4">
+                <span class="bg-sky-500 text-white text-xs px-2.5 py-1 rounded-full font-medium">Framework</span>
+                <h2 class="text-white font-bold text-xl mt-3">Tailwind CSS</h2>
+                <p class="text-slate-400 mt-2 text-sm leading-relaxed">
+                  A utility-first CSS framework for building modern user interfaces — directly in your HTML.
+                </p>
+                <button class="mt-5 w-full bg-sky-500 hover:bg-sky-400 text-white font-semibold py-2.5 rounded-xl transition-colors">
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Responsive / Dark Mode demo -->
+    <section class="py-20 px-6">
+      <div class="mx-auto max-w-6xl">
+        <div class="text-center mb-14">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Responsive & State Variants</h2>
+          <p class="text-slate-400 text-lg max-w-xl mx-auto">Prefix any utility with a variant to control it in context.</p>
+        </div>
+        <div class="grid sm:grid-cols-3 gap-4 text-sm">
+
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+            <p class="text-sky-400 font-bold mb-4 text-xs uppercase tracking-widest">📐 Responsive</p>
+            <div class="space-y-2 font-mono text-slate-300">
+              <div class="flex items-center gap-2"><span class="text-slate-600">sm:</span><span>≥ 640px</span></div>
+              <div class="flex items-center gap-2"><span class="text-slate-600">md:</span><span>≥ 768px</span></div>
+              <div class="flex items-center gap-2"><span class="text-slate-600">lg:</span><span>≥ 1024px</span></div>
+              <div class="flex items-center gap-2"><span class="text-slate-600">xl:</span><span>≥ 1280px</span></div>
+              <div class="flex items-center gap-2"><span class="text-slate-600">2xl:</span><span>≥ 1536px</span></div>
+            </div>
+            <div class="mt-4 bg-slate-800 rounded-lg p-3 font-mono text-xs text-green-400">
+              hidden md:block
+            </div>
+          </div>
+
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+            <p class="text-violet-400 font-bold mb-4 text-xs uppercase tracking-widest">🖱 Interactive</p>
+            <div class="space-y-2 font-mono text-slate-300">
+              <div class="flex items-center gap-2"><span class="text-slate-600">hover:</span><span>on hover</span></div>
+              <div class="flex items-center gap-2"><span class="text-slate-600">focus:</span><span>on focus</span></div>
+              <div class="flex items-center gap-2"><span class="text-slate-600">active:</span><span>on click</span></div>
+              <div class="flex items-center gap-2"><span class="text-slate-600">disabled:</span><span>disabled state</span></div>
+              <div class="flex items-center gap-2"><span class="text-slate-600">group-hover:</span><span>parent hover</span></div>
+            </div>
+            <div class="mt-4 bg-slate-800 rounded-lg p-3 font-mono text-xs text-green-400">
+              hover:bg-sky-500
+            </div>
+          </div>
+
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+            <p class="text-pink-400 font-bold mb-4 text-xs uppercase tracking-widest">🌙 Dark Mode</p>
+            <div class="space-y-2 font-mono text-slate-300">
+              <div class="flex items-center gap-2"><span class="text-slate-600">dark:</span><span>in dark mode</span></div>
+            </div>
+            <div class="mt-4 bg-slate-800 rounded-lg p-3 font-mono text-xs text-green-400 leading-relaxed">
+              bg-white<br/>dark:bg-slate-900<br/>text-black<br/>dark:text-white
+            </div>
+            <p class="text-slate-500 text-xs mt-4 leading-relaxed">Combine with responsive prefixes: <code class="text-slate-400">md:dark:text-lg</code></p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24 px-6 text-center relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-sky-500/5 to-cyan-500/5 pointer-events-none"></div>
+      <div class="relative mx-auto max-w-2xl">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-5">Ready to dive in?</h2>
+        <p class="text-slate-400 text-lg mb-8">Read the official docs, try the playground, or install it in your project today.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="https://tailwindcss.com/docs" target="_blank" class="bg-sky-500 hover:bg-sky-400 text-white font-semibold px-8 py-3.5 rounded-xl transition-all hover:scale-105 shadow-lg shadow-sky-500/30">
+            Read the Docs
+          </a>
+          <a href="https://play.tailwindcss.com" target="_blank" class="border border-slate-700 hover:border-sky-500/50 text-slate-300 hover:text-white font-semibold px-8 py-3.5 rounded-xl transition-all">
+            Open Playground
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 py-8 px-6 text-center text-slate-500 text-sm">
+      <p>Built with <span class="text-sky-400">Tailwind CSS</span> — Utility-First CSS Framework by Adam Wathan & team.</p>
+    </footer>
+
   </body>
 </html>
